@@ -14,6 +14,11 @@ config = {
             v1: {
                 url: 'http://ron-swanson-quotes.herokuapp.com/v2'
             }
+        },
+        distanceApi: {
+            v1: {
+                url: 'http://how-far.herokuapp.com/v2'
+            }
         }
     }
 };

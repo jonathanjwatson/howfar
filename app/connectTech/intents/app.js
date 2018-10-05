@@ -1,7 +1,9 @@
 'use strict';
+require('dotenv').config()
 const makeCard = require('./lib/makeCard.js'),
     ronSwansonApi = require('./lib/ronSwansonApi.js'),
     audiofiles = require('./lib/audiofile.js'),
+    distanceApi = require('./lib/distanceApi.js'),
     _ = require('lodash');
 
 /**
@@ -13,6 +15,7 @@ let amazingApp = function (app) {
     app.makeCard = makeCard;
     app.ronSwansonApi = ronSwansonApi;
     app.audiofiles = audiofiles;
+    app.distanceApi = distanceApi;
     app._ = _;
 
     /**
@@ -45,6 +48,22 @@ let amazingApp = function (app) {
                                  .send();
          });
      });
+
+     app.intent('audioPlayer', {
+        slots: {START: 'START', END: 'END'}
+    }, (request, response) => {
+        let start = request.slot('START');
+        let end = request.slot('END');
+        return app.distanceApi.getTime(start, end)
+        .then( (distanceObject) => {
+            let time = distanceObject.routes[0].legs[0].duration.text;
+            return response.say(`Estimated time is ${time}`)
+            .shouldEndSession(true)
+            .send();
+        }).catch((error) => {
+            console.log('error', error);
+        });
+    });
 
     /**
      *  Amazon built-in intents:
