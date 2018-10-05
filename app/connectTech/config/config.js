@@ -3,8 +3,9 @@
 const nconf = require('nconf');
 
 let environment,
-    port,
     config;
+
+    var port = process.env.PORT || 3000;
 
 config = {
     default: {
@@ -20,7 +21,7 @@ config = {
 nconf.env().argv();
 // make sure we have an environment set or die
 environment = nconf.get('ENVIRONMENT');
-port = nconf.get('PORT');
+// port = nconf.get('PORT');
 
 if (typeof environment === 'undefined' || typeof port === 'undefined') {
     console.error(`ENVIRONMENT and/or PORT are not set. Shutting down.  ENVIRONMENT: ${environment} - PORT: ${port}`);
