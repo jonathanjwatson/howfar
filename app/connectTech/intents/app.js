@@ -57,6 +57,7 @@ let amazingApp = function (app) {
         return app.distanceApi.getTime(start, end)
         .then( (distanceObject) => {
             let time = distanceObject.routes[0].legs[0].duration.text;
+            time = time.replace("mins", "minutes");
             return response.say(`Estimated time is ${time}`)
             .shouldEndSession(true)
             .send();
