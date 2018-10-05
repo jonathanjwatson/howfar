@@ -1,0 +1,30 @@
+{
+  "name": "how-far",
+  "version": "1.0.0",
+  "description": "Alexa App for Getting Distances",
+  "main": "",
+  "scripts": {
+    "test": "test",
+    "start": "PORT=8081 ENVIRONMENT=dev ENABLEPOLLER=1 nodemon server.js"
+  },
+  "engines": {},
+  "author": "Jonathan J. Watson",
+  "license": "ISC",
+  "dependencies": {
+    "alexa-app": "^4.2.2",
+    "alexa-app-server": "^3.0.2",
+    "alexa-utterances": "^0.2.1",
+    "alexa-verifier": "^2.0.1",
+    "express": "^4.16.3",
+    "lodash": "^4.17.11",
+    "nconf": "^0.10.0",
+    "nodemon": "^1.18.4",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.2"
+  },
+  "devDependencies": {
+    "esdoc": "^1.1.0",
+    "eslint": "^5.6.1",
+    "jsonlint": "^1.6.3"
+  }
+}

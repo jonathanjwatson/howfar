@@ -1,0 +1,9 @@
+.c9
+.idea
+docs
+node_modules
+npm-debug.log
+.eslintrc
+.ignore
+.vscode
+package-lock.json

@@ -1,0 +1,14 @@
+{
+  "name": "how-far",
+  "version": "1.0.0",
+  "description": "How Far App",
+  "main": "index.js",
+  "author": "Jonathan J. Watson",
+  "license": "ISC",
+  "alexa": {
+    "applicationId":""
+  },
+  "dependencies": {
+    "alexa-app": "3.2.0"
+  }
+}
